@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import toast from 'react-hot-toast';
 import client from '../api/client';
 import type { PricePeriod } from '../api/types';

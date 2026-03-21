@@ -48,25 +48,25 @@ function CalculatorPage() {
             <label>Start Date</label>
             <DatePicker
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date: Date | null) => setStartDate(date)}
               dateFormat="yyyy-MM-dd"
               placeholderText="Select start date"
               selectsStart
-              startDate={startDate}
-              endDate={endDate}
+              startDate={startDate ?? undefined}
+              endDate={endDate ?? undefined}
             />
           </div>
           <div className="field">
             <label>End Date</label>
             <DatePicker
               selected={endDate}
-              onChange={(date) => setEndDate(date)}
+              onChange={(date: Date | null) => setEndDate(date)}
               dateFormat="yyyy-MM-dd"
               placeholderText="Select end date"
               selectsEnd
-              startDate={startDate}
-              endDate={endDate}
-              minDate={startDate}
+              startDate={startDate ?? undefined}
+              endDate={endDate ?? undefined}
+              minDate={startDate ?? undefined}
             />
           </div>
           <button className="calc-btn" onClick={handleCalculate} disabled={loading}>
