@@ -1,0 +1,142 @@
+.navbar {
+  background: #1a1a2e;
+  padding: 14px 0;
+  margin-bottom: 30px;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+}
+
+.navbar-brand {
+  color: #e0e0e0;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.navbar-links a {
+  color: #b0b0b0;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: #fff;
+}
+
+.navbar-links button {
+  background: none;
+  border: 1px solid #555;
+  color: #ccc;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.navbar-links button:hover {
+  border-color: #aaa;
+  color: #fff;
+}
+
+.navbar-user {
+  color: #888;
+  font-size: 13px;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 600px) {
+  .navbar .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar-top {
+    width: 100%;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 12px;
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar-links a {
+    padding: 10px 0;
+    font-size: 15px;
+    border-bottom: 1px solid #2a2a3e;
+  }
+
+  .navbar-links button {
+    margin-top: 8px;
+    padding: 10px 0;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .navbar-user {
+    padding: 8px 0 0;
+  }
+}

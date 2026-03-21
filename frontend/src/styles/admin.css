@@ -1,0 +1,216 @@
+.admin-page h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.admin-section {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.admin-section h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.default-price-form {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.default-price-form .field {
+  flex: 1;
+}
+
+.default-price-form label {
+  display: block;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.default-price-form input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.default-price-form input:focus {
+  border-color: #4a6fa5;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: #4a6fa5;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #3b5d8a;
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-secondary {
+  background: #eee;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #ddd;
+}
+
+.periods-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.periods-table th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid #eee;
+  color: #888;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.periods-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.periods-table .actions {
+  display: flex;
+  gap: 6px;
+}
+
+.period-form {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.period-form h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.period-form-fields {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.period-form-fields .field {
+  flex: 1;
+  min-width: 140px;
+}
+
+.period-form-fields label {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.period-form-fields input {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+}
+
+.period-form-fields input:focus {
+  border-color: #4a6fa5;
+}
+
+.period-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.empty-state {
+  color: #999;
+  font-size: 14px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .admin-page h1 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .admin-section {
+    padding: 16px;
+  }
+
+  .default-price-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .periods-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .periods-table th,
+  .periods-table td {
+    padding: 8px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .period-form-fields {
+    flex-direction: column;
+  }
+
+  .period-form-fields .field {
+    min-width: 100%;
+  }
+
+  .period-form-actions {
+    flex-direction: column;
+  }
+
+  .period-form-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
