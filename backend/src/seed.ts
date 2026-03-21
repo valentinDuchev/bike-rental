@@ -14,6 +14,9 @@ const dataSource = new DataSource({
   database: process.env.DB_NAME || 'bike_rental',
   entities: [User, Setting, PricePeriod],
   synchronize: true,
+  ssl: process.env.DB_SSL === 'true'
+    ? { rejectUnauthorized: false }
+    : false,
 });
 
 async function seed() {

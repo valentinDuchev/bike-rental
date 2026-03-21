@@ -21,6 +21,9 @@ import { SettingsModule } from './settings/settings.module.js';
         database: config.get<string>('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true,
+        ssl: config.get<string>('DB_SSL') === 'true'
+          ? { rejectUnauthorized: false }
+          : false,
       }),
     }),
     AuthModule,
