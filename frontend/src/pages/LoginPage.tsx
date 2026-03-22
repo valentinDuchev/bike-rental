@@ -1,23 +1,29 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useServerStatus } from '../hooks/useServerStatus';
 import '../styles/login.css';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
+  const serverStatus = useServerStatus();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError('');
+    setSubmitting(true);
     try {
       await login(username, password);
       navigate('/admin');
     } catch {
       setError('Invalid username or password');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -43,7 +49,13 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="login-btn">Sign In</button>
+          <button
+            type="submit"
+            className="login-btn"
+            disabled={serverStatus === 'loading' || submitting}
+          >
+            {submitting ? 'Signing in...' : serverStatus === 'loading' ? 'Waiting for server...' : 'Sign In'}
+          </button>
           {error && <p className="login-error">{error}</p>}
         </form>
       </div>

@@ -18,6 +18,7 @@ function AdminPage() {
   const [formData, setFormData] = useState<PeriodFormData>(emptyForm);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [showForm, setShowForm] = useState(false);
+  const [pageLoading, setPageLoading] = useState(true);
 
   const loadPeriods = async () => {
     try {
@@ -38,8 +39,9 @@ function AdminPage() {
   };
 
   useEffect(() => {
-    loadPeriods();
-    loadDefaultPrice();
+    Promise.all([loadPeriods(), loadDefaultPrice()]).finally(() =>
+      setPageLoading(false),
+    );
   }, []);
 
   const handleDefaultPriceSubmit = async (e: FormEvent) => {
@@ -103,6 +105,16 @@ function AdminPage() {
     setEditingId(null);
     setShowForm(false);
   };
+
+  if (pageLoading) {
+    return (
+      <div className="container">
+        <div className="admin-page">
+          <div className="page-loader">Loading pricing data...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container">
