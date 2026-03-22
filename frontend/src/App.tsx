@@ -15,6 +15,12 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+function GuestRoute({ children }: { children: React.ReactNode }) {
+  const { isLoggedIn } = useAuth();
+  if (isLoggedIn) return <Navigate to="/" />;
+  return <>{children}</>;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -24,7 +30,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<CalculatorPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<GuestRoute><LoginPage /></GuestRoute>} />
             <Route
               path="/admin"
               element={

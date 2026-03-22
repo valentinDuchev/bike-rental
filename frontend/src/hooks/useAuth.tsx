@@ -11,17 +11,12 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState<string | null>(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const savedUser = localStorage.getItem('username');
-    if (token && savedUser) {
-      setIsLoggedIn(true);
-      setUsername(savedUser);
-    }
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => !!localStorage.getItem('token'),
+  );
+  const [username, setUsername] = useState<string | null>(
+    () => localStorage.getItem('username'),
+  );
 
   const login = async (user: string, password: string) => {
     const res = await client.post('/auth/login', { username: user, password });
